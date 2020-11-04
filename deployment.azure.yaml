@@ -1,20 +1,20 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
 kind: Deployment 
 metadata: 
-  name: angular-deployment 
+  name: jar-deployment 
 spec: 
   selector: 
     matchLabels: 
-      app: angular 
-  replicas: 3 # tells deployment to run 2 pods matching the template 
+      app: java 
+  replicas: 1 # tells deployment to run 2 pods matching the template 
   template:
     metadata: 
       labels: 
-        app: angular 
+        app: java 
     spec: 
       containers: 
-      - name: angular 
-        image: 114455/angular-app-aks:latest
+      - name: java 
+        image: misercon.azurecr.io/microservice:25
         ports: 
         - containerPort: 80 
 --- 
@@ -22,10 +22,10 @@ spec:
 kind: Service 
 apiVersion: v1 
 metadata: 
-  name: angular-service 
+  name: java-service 
 spec: 
   selector: 
-    app: angular 
+    app: java 
   ports: 
   - protocol: TCP 
     port: 80 
