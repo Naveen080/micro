@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: java 
-        image: misercon.azurecr.io/microservice:25
+        image: misercon.azurecr.io/microservice:#{Build.BuildId}#
         ports: 
         - containerPort: 80 
 --- 
