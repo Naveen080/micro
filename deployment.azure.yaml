@@ -16,7 +16,7 @@ spec:
       - name: java 
         image: misercon.azurecr.io/microservice:#{Build.BuildId}#
         ports: 
-        - containerPort: 80 
+        - containerPort: 8080
 --- 
 # https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service  
 kind: Service 
@@ -28,6 +28,6 @@ spec:
     app: java 
   ports: 
   - protocol: TCP 
-    port: 80 
-    targetPort: 80 
+    port: 8080 
+    targetPort: 8080
   type: LoadBalancer 
